@@ -23,19 +23,19 @@ python3 enhanced_with_normalization.py
 
 Sample images
 
-Version	                  Output
-Original photo           ``` images/image1.webp ```
-Original code            ``` images/original_output.png ```
-uint8 	                 ``` images/uint8_output.png ```
-Normalized	             ``` images/normalized_output.png ```     
+
+Original photo    :       ``` images/image1.webp ```
+Original code     :       ``` images/original_output.png ```
+uint8 	          :       ``` images/uint8_output.png ```
+Normalized	      :       ``` images/normalized_output.png ```     
 
 
 Changes & Fixes
-Initial output was dull due to incorrect pixel value handling.
+The initial output was dull due to incorrect handling of the pixel value.
 
 Fixed by converting values to uint8.
 
-Further improvement achieved by normalizing pixel values for vibrant colors.
+Further improvement is achieved by normalizing pixel values for vibrant colors.
 
 Reference:  ``` https://towardsdatascience.com/image-segmentation-with-k-means-clustering-1bc53601f033/ ```
 
