@@ -1,42 +1,28 @@
 # K-Means Image Segmentation
 
-This repository contains three versions of an image segmentation algorithm using K-Means clustering:
+A small image-processing exercise that segments an image by grouping its pixels into K colour clusters with K-Means. Based on a Towards Data Science tutorial.
 
-- **original_code.py** → Original code from the reference article.
-- **enhanced_with_uint8.py** → Improved version by converting pixel values to `uint8` for better color accuracy.
-- **enhanced_with_normalization.py** → Final optimized version using data normalization for vibrant output.
+## What it does
+Each pixel of an image is a point in RGB colour space. K-Means groups these pixels into K clusters and repaints every pixel with its cluster's average colour. The result is a simplified image made of only K colours, which splits the picture into colour regions (segments).
 
-## How to Run
-1. To run the original code:
+## How it works
+1. Load the image and convert it from OpenCV's BGR to RGB.
+2. Start with K random cluster centres (colours).
+3. Assign every pixel to its nearest centre, then move each centre to the mean colour of the pixels assigned to it.
+4. Repeat until the centres stop moving (convergence).
+5. Recolour each pixel with its final cluster colour to produce the segmented image.
 
-```
+## Run
+```bash
 python3 original_code.py
-
 ```
-To run the improved versions:
+Update the image path inside the script to point to your own image. Sample input and output are in the `images/` folder.
 
-```
-python3 enhanced_with_uint8.py
-python3 enhanced_with_normalization.py
+## What this is (and isn't)
+A learning exercise for an image-processing course. K-Means here performs **unsupervised colour segmentation** (grouping visually similar colours). It is **not** semantic segmentation and does not recognise objects or label regions by meaning.
 
-```
-
-Sample images
+**Reference:** [Image Segmentation with K-Means Clustering (Towards Data Science)](https://towardsdatascience.com/image-segmentation-with-k-means-clustering-1bc53601f033/)
 
 
-Original photo    :       ``` images/image1.webp ```
-Original code     :       ``` images/original_output.png ```
-uint8 	          :       ``` images/uint8_output.png ```
-Normalized	      :       ``` images/normalized_output.png ```     
-
-
-Changes & Fixes
-The initial output was dull due to incorrect handling of the pixel value.
-
-Fixed by converting values to uint8.
-
-Further improvement is achieved by normalizing pixel values for vibrant colors.
-
-Reference:  ``` https://towardsdatascience.com/image-segmentation-with-k-means-clustering-1bc53601f033/ ```
 
 
